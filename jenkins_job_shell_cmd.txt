@@ -1,0 +1,19 @@
+****************************************************************************************
+Shell Command:
+****************************************************************************************
+test_dir="/"$TEST_SUITE
+test_suite_dir="/var/www/html/"$RELEASE_NAME$test_dir
+
+if [ -d "$test_suite_dir" ]; then
+   echo "HTML Report gets created in ${test_suite_dir} directory..."
+else
+   echo $SUDO_PASSWORD | sudo -S mkdir $test_suite_dir
+fi
+
+file_name="/report-onie_465_JP_Jenkins-Job.html"
+home_dir="/home/extreme/automation/exos/reports"
+target_directory=$home_dir$file_name
+
+pytest --html=$target_directory --tc-file="/home/extreme/automation/exos/Config_files/device_onie_x465.yaml" --tc-file="/home/extreme/automation/exos/Config_files/topo.prod.JP.yaml" /home/extreme/automation/exos/test_exos_relsanity.py
+
+echo $SUDO_PASSWORD | sudo -S cp $target_directory $test_suite_dir
