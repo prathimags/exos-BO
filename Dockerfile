@@ -1,21 +1,14 @@
-#Deriving the latest base image
-FROM python:latest
+FROM centos/systemd
+RUN mkdir /run/systemd/system
+CMD ["/usr/sbin/init"]
+RUN yum -y install initscripts && yum clean all
+RUN yum -y update
+RUN yum install -y python39
+RUN yum install -y git
 
+RUN git clone https://github.com/prathimags/exos-blueocean.git /opt/exos/
+WORKDIR /opt/exos/
 
-#Labels as key value pair
-LABEL Maintainer="roushan.me17"
+RUN pip3 install -r requirements.txt
 
-
-# Any working directory can be chosen as per choice like '/' or '/home' etc
-# i have chosen /usr/app/src
-WORKDIR /usr/app/src
-
-#to COPY the remote file at working directory in container
-COPY test.py ./
-# Now the structure looks like this '/usr/app/src/test.py'
-
-
-#CMD instruction should be used to run the software
-#contained by your image, along with any arguments.
-
-CMD [ "python", "./test.py"]
+RUN pytest --html=./ reports/report-summitlite-arm_435_staging.html --tc-file=". /Config_files/device_summitarm_lite_x435.yaml" --tc-file=". /Config_files/topo.test.staging.yaml" ./test_exos_relsanity.py
