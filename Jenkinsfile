@@ -6,11 +6,10 @@ pipeline {
 
   }
   stages {
-    
     stage('build') {
       steps {
         git 'https://github.com/prathimags/exos-bo.git'
-        //sh 'pip install --user -r requirements.txt'
+        build 'Image Sanity Test (Stage)/435-summitlitearm-job'
       }
     }
 
