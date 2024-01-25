@@ -3,16 +3,13 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        build 'Image Sanity Test (Stage)/435-summitlitearm-job'
-        git 'https://github.com/prathimags/exos-bo.git'
+        build 'Image Sanity Test (Stage)/450-SummitX-job'
       }
     }
 
     stage('test') {
       steps {
-        sh 'echo "test"'
-        sh 'python -V'
-        sh 'python -m pytest'
+        echo 'Check the reports in http://10.127.13.204/'
       }
     }
 
