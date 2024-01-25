@@ -8,15 +8,17 @@ pipeline {
   stages {
     stage('Initialize'){
       steps {
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
+        scripts {
+          def dockerHome = tool 'myDocker'
+          env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
       }
     }
     
     stage('build') {
       steps {
         git 'https://github.com/prathimags/exos-bo.git'
-        sh 'pip install --user -r requirements.txt'
+        //sh 'pip install --user -r requirements.txt'
       }
     }
 
