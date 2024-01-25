@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        git 'https://github.com/prathimags/exos-bo.git'
         build 'Image Sanity Test (Stage)/435-summitlitearm-job'
+        git 'https://github.com/prathimags/exos-bo.git'
       }
     }
 
