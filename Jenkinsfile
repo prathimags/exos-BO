@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        git 'https://github.com/a42labs/ci-flask-api.git'
-        // sh 'pip install --user -r requirements.txt'
+        git 'https://github.com/prathimags/exos-bo.git'
+        sh 'pip install --user -r requirements.txt'
       }
     }
 
