@@ -48,6 +48,8 @@ def test_check_device_status():
         assert True
     else:
         assert False
+
+
 #verify policy assignment is successfull
 def test_assign_policy():
     polname=policy_name
