@@ -30,8 +30,6 @@ def test_onboard_devices():
 
 
 
-
-
 #Check device status changes to managed
 def test_check_device_status():
 
