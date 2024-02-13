@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        build 'Image Sanity Test (G2R1)/450-SummitX-job'
+        build 'CI-CD-Blueocean-G2R1/450-SummitX-job'
       }
     }
 
