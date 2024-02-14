@@ -9,7 +9,7 @@ pipeline {
 
     stage('SanityRun') {
       steps {
-        build 'CI-CD-Blueocean-G2R1/450-SummitX-job'
+        build 'CI-CD-Blueocean-G2R1/450-SummitX-job-bo'
       }
     }
 
@@ -21,7 +21,7 @@ pipeline {
 
     stage('Reports') {
       steps {
-        echo 'Check the reports in http://10.127.13.204/'
+        echo 'Check the reports in http://10.127.13.204/blueocean/imagetesting/'
       }
     }
 
