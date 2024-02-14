@@ -8,4 +8,4 @@ policy:
   name:     "Wired"
 
 iqagent:
-  version:  "0.7.36"
+  version:  "0.7.74"
