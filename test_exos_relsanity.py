@@ -99,7 +99,7 @@ def test_check_iqagent_Version():
 
 def test_check_switchengine_Version():
 
-    swversion="32.6.2.68"
+    swversion="31.7.3.30"
     checkswver=executeandcheckClioutput(apiurl=apiurl,authurl=authurl,xiquser=xiquser,xiqpass=xiqpass,cliList=["show version"],snsList=snsList,auth_token=auth_token,checkList=[swversion])
 
     if checkswver==True:
