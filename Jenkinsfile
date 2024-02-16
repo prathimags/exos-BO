@@ -3,19 +3,13 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        build 'CI-CD-Blueocean-G2R1/Clone-github-repo'
+        build 'CI-CD-Blueocean-G2R1/exos-github-repo'
       }
     }
 
     stage('SanityRun') {
       steps {
         build 'CI-CD-Blueocean-G2R1/450-SummitX-job-bo'
-      }
-    }
-
-    stage('Cleanup') {
-      steps {
-        build 'CI-CD-Blueocean-G2R1/remove-exos-code'
       }
     }
 
